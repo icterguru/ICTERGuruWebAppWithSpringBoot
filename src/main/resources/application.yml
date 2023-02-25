@@ -15,7 +15,7 @@ spring:
    driver-class-name: com.mysql.cj.jdbc.Driver
    url: jdbc:mysql://localhost:3306/icterguru_dev
    username: root
-   password: MokterAcademy
+   password: YourPassword
 
   jpa:
     hibernate:
