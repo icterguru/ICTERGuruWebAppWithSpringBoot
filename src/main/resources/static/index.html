@@ -1,18 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>Spring boot index page example</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+    
+
+<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+<script :src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+
+    
 </head>
 <body>
-<h1>
-    This is spring boot index page available inside resources/static/index.html </h1>
+<div  class = "container-fluid text-center ">
+
+<h1> Welcome to the WebApp  </h1>
     
     <h2>
-    <a href ="/students"> Manage Students</a> 
+    <a class = "h2" href = "/students"> Manage Students</a>
+    
+     
     </h2>
     
+</div>
  
+    This is spring boot index page available inside resources/static/index.html
     
 </body>
 </html>
