@@ -31,5 +31,23 @@ public class TeacherServiceImpl implements TeacherService{
 		
 	}
 
+	@Override
+	public Teacher getTeacherById(Integer id) {
+		return teacherRepository.findById(id).get();
+		// .get() is required as findById(id) return is Optional 
+	}
+
+	@Override
+	public Teacher updateTeacher(Teacher teacher) {
+ 
+		return teacherRepository.save(teacher);
+	}
+
+	@Override
+	public void deleteTeacherById(Integer id) {
 	
+		teacherRepository.deleteById(id);
+	}
+
+
 }

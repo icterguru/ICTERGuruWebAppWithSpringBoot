@@ -25,13 +25,13 @@
 
 						<div class="form-group">
 							<label> Enter Last Name: </label> <input type="text"
-								class="form-control" name="last_name" th:field="*{lastName}"
+								class="form-control" name="lastName" th:field="*{lastName}"
 								placeholder="Enter Last Name" />
 						</div>
-
+				
 						<div class="form-group">
 							<label> Enter First Name: </label> <input type="text"
-								class="form-control" name="first_name" th:field="*{firstName}"
+								class="form-control" name="firstName" th:field ="*{firstName}"
 								placeholder="Enter First Name" />
 						</div>
 
@@ -48,11 +48,24 @@
 						</div>
 
 						<div class="form-group">
+							<label> Select Department: </label> <input type="text"
+								class="form-control" name="department" th:field="*{department}"
+								placeholder="Enter Department" />
+						</div>
+
+						<div class="form-group">
+							<label> Select Designation: </label> <input type="text"
+								class="form-control" name="phone" th:field="*{designation}"
+								placeholder="Enter Designation" />
+						</div>
+
+
+						<div class="form-group">
 							<label> Enter Notes (if any): </label> <input type="text"
 								class="form-control" name="notes" th:field="*{notes}"
 								placeholder="Enter Notes (if any)" />
 						</div>
-
+				
 						<div class="box-footer">
 							<button type="submit" class="btn btn-primary"> Save</button>
 						</div>
@@ -67,8 +80,10 @@
 
 	</div>
 
+<br> <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 	This is spring boot index page available inside
-	resources/static/enter_teacher.html
+	resources/templates/addnew_teacher.html
 
 </body>
 </html>

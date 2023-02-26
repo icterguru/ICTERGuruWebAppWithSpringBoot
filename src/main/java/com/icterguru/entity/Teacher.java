@@ -61,7 +61,7 @@ public class Teacher {
 	public String getDepartment() {
 		return department;
 	}
-	public void setDept(String department) {
+	public void setDepartment(String department) {
 		this.department = department;
 	}
 	public String getDesignation() {

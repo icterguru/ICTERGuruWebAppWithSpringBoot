@@ -1,16 +1,13 @@
 package com.icterguru.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.icterguru.entity.Student;
 import com.icterguru.entity.Teacher;
 import com.icterguru.service.TeacherService;
 
@@ -31,35 +28,18 @@ public class TeacherController {
 	public String getTeachers(Model model) {
 		model.addAttribute("teachers", teacherService.getAllTeachers());
 
-		return "teachers"; // returns the teachers.html file
+		return "teachers"; // returns to the the teachers.html file
 
 	}
 
-	// Teacher Handlers handle the list of students and returns model and view
-//	@GetMapping("/teachers")
-//	public String getTeachers(Model model) {
-//		List<Teacher> teacherList = teacherService.getAllTeachers();
-//		model.addAttribute("teacherList", teacherList);
-//		return "teachers";	
-//		// returns the teachers.html file 
-//	}
-
-	/*
-	 * @CrossOrigin
-	 * 
-	 * @GetMapping("/teachers") public List<Teacher> fetchStudentList(){
-	 * 
-	 * return teacherService.getAllTeachers(); }
-	 */
-
 	@GetMapping("/teachers/addnew")
-	public String newTeacher(Model model) {
+	public String returnsAddNewTeacherForm(Model model) {
 
-		// This teacher will hold data from the Entry Form
+		// This teachers bean will hold data from the Entry Form
 		Teacher teacher = new Teacher();
 		model.addAttribute("teachers", teacher);
-		// returns the addnew_teachers.html file
-		return "addnew_teacher";
+		// returns to the the teacher_addnew.html file
+		return "teacher_addnew";
 	}
 
 	@PostMapping(path = "/teachers")
@@ -70,4 +50,35 @@ public class TeacherController {
 		// Will redirect the getTeachers()
 	}
 
+	@PostMapping(path = "/teachers/update/{id}")
+	public String returnsUpdateTeacherForm(@PathVariable Integer id, Model model) {
+		model.addAttribute("teacher", teacherService.getTeacherById(id));
+		return "teacher_update";
+		// returns to the the teacher_update.html file
+	}
+
+	@PostMapping(path = "/teachers/{id}")
+	public String updateTeacherRecord(@PathVariable Integer id, Model model, @ModelAttribute("teacher") Teacher teacher) {
+		// First get the teacher record from the database 
+		Teacher updatesTeacher = teacherService.getTeacherById(id);
+		updatesTeacher.setId(id);
+		
+		updatesTeacher.setLastName(teacher.getLastName() );
+		updatesTeacher.setFirstName(teacher.getFirstName() );
+		updatesTeacher.setEmail(teacher.getEmail() );
+		updatesTeacher.setPhone(teacher.getPhone());
+		updatesTeacher.setDepartment(teacher.getDepartment());
+		updatesTeacher.setDesignation(teacher.getDesignation());
+		updatesTeacher.setNotes(teacher.getNotes());
+		
+		teacherService.updateTeacher(teacher);
+		return "redirect:/teachers";
+	}
+	
+	// Delete a record handler by id
+	
+	public String deleteTeacherRecord(@PathVariable Integer id) {
+		teacherService.deleteTeacherById(id);
+		return "redirect:/teachers";
+	}
 }

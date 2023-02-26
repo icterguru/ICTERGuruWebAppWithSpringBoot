@@ -51,6 +51,15 @@
 						<td th:text="${teacher.designation}"></td>
 						<td th:text="${teacher.notes}"></td>
 				
+						<td >
+						<a class = "btn btn-secondary"  
+						th:href = "@{/teachers/update/{id} (id=${teacher.id}) }"> Update</a>
+						
+						<a class = "btn btn-danger"  
+						th:href = "@{/teachers/update/{id} (id=${teacher.id})}"> Delete</a>
+						
+						</td>
+				
 				</tr>
 				
 			</tbody>
@@ -59,9 +68,6 @@
 		</table>
 	</div>
 
-
-	This is spring boot index page available inside
-	resources/static/index.html
 
 </body>
 </html>

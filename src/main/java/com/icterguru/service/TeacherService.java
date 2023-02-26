@@ -8,7 +8,12 @@ public interface TeacherService {
 
 	List<Teacher> getAllTeachers();
 
+	Teacher getTeacherById(Integer id);
+	
 	Teacher saveTeacher(Teacher teacher);
-
-
+	
+	Teacher updateTeacher(Teacher teacher);
+	
+	void deleteTeacherById(Integer id);
+	
 }
