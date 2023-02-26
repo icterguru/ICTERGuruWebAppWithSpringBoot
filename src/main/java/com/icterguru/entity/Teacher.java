@@ -13,19 +13,19 @@ public class Teacher {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name="LastName", nullable = false)
+	@Column(name="LastName", nullable = false, length = 20)
 	private String lastName;
-	@Column(name="FirstName", nullable = false)
+	@Column(name="FirstName", nullable = false, length = 20)
 	private String firstName;
-	@Column(name="Email", nullable = false, unique=true)
+	@Column(name="Email", nullable = false, length = 20)
 	private String email;
-	@Column(name="Phone", nullable = false)
+	@Column(name="Phone", nullable = false, length = 20)
 	private String phone;
-	@Column(name="Department", nullable = false)
+	@Column(name="Department", nullable = false, length = 20)
 	private String department;
-	@Column(name="Designation", nullable = false)
+	@Column(name="Designation", nullable = false, length = 20)
 	private String designation;
-	@Column(name="Notes")
+	@Column(name="Notes", nullable = true)
 	private String notes;
 	
 	public Integer getId() {
