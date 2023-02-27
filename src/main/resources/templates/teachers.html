@@ -23,7 +23,11 @@
 				<a th:href="@{/teachers/addnew}"
 					class="btn btn-primary bm-3 btn-sm "> Add New Teacher</a>
 			</div>
+
+			<div th:if="${message}" class="alert alert-success text-center">
+				[[${message}]]</div>
 		</div>
+		
 		<br>
 		<table class="table table-bordered">
 			<thead class="thead-light">
@@ -40,28 +44,33 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each = "teacher: ${teachers}">
-				
-						<td th:text="${teacher.id}"></td>
-						<td th:text="${teacher.lastName}"></td>
-						<td th:text="${teacher.firstName}"></td>
-						<td th:text="${teacher.email}"></td>
-						<td th:text="${teacher.phone}"></td>
-						<td th:text="${teacher.department}"></td>
-						<td th:text="${teacher.designation}"></td>
-						<td th:text="${teacher.notes}"></td>
-				
-						<td >
-						<a class = "btn btn-secondary"  
-						th:href = "@{/teachers/update/{id} (id=${teacher.id}) }"> Update</a>
+				<tr th:each="teacher: ${teachers}">
+
+					<td > [[${teacher.id} ]]</td>
+					<!-- Or, alternatively, as follows -->
+					<!-- <td th:text="${teacher.id}"></td> -->
+					
+					<td th:text="${teacher.lastName}"></td>
+					<td th:text="${teacher.firstName}"></td>
+					<td th:text="${teacher.email}"></td>
+					<td th:text="${teacher.phone}"></td>
+					<td th:text="${teacher.department}"></td>
+					<td th:text="${teacher.designation}"></td>
+					<td th:text="${teacher.notes}"></td>
+
+					<td><a class="btn btn-danger"
 						
-						<a class = "btn btn-danger"  
-						th:href = "@{/teachers/update/{id} (id=${teacher.id})}"> Delete</a>
-						
-						</td>
-				
+						th:href="@{/teachers/update/{id} (id=${teacher.id}) }"> Update</a>
+
+						<!-- th:href="@{'/teachers/update/' + ${teacher.id}) }"> Update</a> -->
+					
+						<a class="btn btn-danger"
+						th:href="@{/teachers/delete/{id} (id=${teacher.id})}"> Delete</a>
+
+					</td>
+
 				</tr>
-				
+
 			</tbody>
 
 

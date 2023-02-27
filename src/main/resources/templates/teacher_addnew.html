@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://thymleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>ICTER Guru WebApp</title>
+<title>[[${pageTitle}]]</title>
 
 
 <link
@@ -18,7 +18,7 @@
 
 			<div
 				class="col-lg-6 cil-md-6 col-sm-6 container justify-content-center card">
-				<h2>Enter New Teacher</h2>
+				<h2> [[${pageTitle}]]</h2>
 				<div class="card-body">
 					<form th:action="@{/teachers}" th:object="${teachers}"
 						method="POST" style ="max-width: 600px; margin: 0, auto; " >
